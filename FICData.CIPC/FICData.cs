@@ -29,25 +29,61 @@ namespace CIPC.FICData
                 Console.WriteLine(ex.Message);
             }
         }
-        public static object ReadData(string filelocation, string sheetname, string cellName, string strRange)
+        public static List<string> ReadData(string filelocation, int sheetname)
         {
+            List<string> numberList = new List<string>();
+
             try
             {
-                WorkBook workbook = WorkBook.Load(filelocation);
-                WorkSheet sheet = workbook.GetWorkSheet(sheetname);
-                //Select cells easily in Excel notation and return the calculated value
-                int cellValue = sheet[cellName].IntValue;
-                // Read from Ranges of cells elegantly.
-                foreach (var cell in sheet[strRange])
+                //Create COM Objects. Create a COM object for everything that is referenced
+                Excel.Application xlApp = new Excel.Application();
+                Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(filelocation);
+                Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[sheetname];
+                Excel.Range xlRange = xlWorksheet.UsedRange;
+
+                int rowCount = xlRange.Rows.Count;
+                int colCount = xlRange.Columns.Count;
+                
+                for (int i = 1; i <= rowCount; i++)
                 {
-                    return cell.Value;
+                    for (int j = 1; j <= colCount; j++)
+                    {
+
+                        //new line
+                        if (j == 1)
+                           numberList.Add("\r\n");
+
+                        //write the value to the console
+                        if (xlRange.Cells[i, j] != null && xlRange.Cells[i, j].Value2 != null)
+                              numberList.Add(xlRange.Cells[i, j].Value2.ToString() + " ");
+                    }
                 }
+                return numberList;
+                //cleanup
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
+                //rule of thumb for releasing com objects:
+                //  never use two dots, all COM objects must be referenced and released individually
+                //  ex: [somthing].[something].[something] is bad
+
+                //release com objects to fully kill excel process from running in the background
+                Marshal.ReleaseComObject(xlRange);
+                Marshal.ReleaseComObject(xlWorksheet);
+
+                //close and release
+                xlWorkbook.Close();
+                Marshal.ReleaseComObject(xlWorkbook);
+
+                //quit and release
+                xlApp.Quit();
+                Marshal.ReleaseComObject(xlApp);
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                //return ex.Message;
             }
-            return "No data";
+            return numberList;
         }
     }
 }
