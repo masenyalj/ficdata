@@ -1,0 +1,4 @@
+C:\Users\lmasenya\Documents\Visual Studio 2015\Projects\excelclass\FICData.CIPC\bin\Debug\FICData.CIPC.dll
+C:\Users\lmasenya\Documents\Visual Studio 2015\Projects\excelclass\FICData.CIPC\bin\Debug\FICData.CIPC.pdb
+C:\Users\lmasenya\Documents\Visual Studio 2015\Projects\excelclass\FICData.CIPC\obj\Debug\FICData.CIPC.dll
+C:\Users\lmasenya\Documents\Visual Studio 2015\Projects\excelclass\FICData.CIPC\obj\Debug\FICData.CIPC.pdb
