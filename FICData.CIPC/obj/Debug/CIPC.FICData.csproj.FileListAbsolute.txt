@@ -5,9 +5,3 @@ C:\Users\lmasenya\Documents\Visual Studio 2015\Projects\excelclass\FICData.CIPC\
 C:\Users\lmasenya\Documents\Visual Studio 2015\Projects\excelclass\FICData.CIPC\obj\Debug\CIPC.FICData.csprojResolveAssemblyReference.cache
 C:\Users\lmasenya\Documents\Visual Studio 2015\Projects\excelclass\FICData.CIPC\bin\Debug\IronXL.dll
 C:\Users\lmasenya\Documents\Visual Studio 2015\Projects\excelclass\FICData.CIPC\bin\Debug\IronXL.xml
-C:\Users\lmasenya\Documents\ficdata\FICData.CIPC\bin\Debug\CIPC.FICData.dll
-C:\Users\lmasenya\Documents\ficdata\FICData.CIPC\bin\Debug\CIPC.FICData.pdb
-C:\Users\lmasenya\Documents\ficdata\FICData.CIPC\bin\Debug\IronXL.xml
-C:\Users\lmasenya\Documents\ficdata\FICData.CIPC\obj\Debug\CIPC.FICData.csprojResolveAssemblyReference.cache
-C:\Users\lmasenya\Documents\ficdata\FICData.CIPC\obj\Debug\CIPC.FICData.dll
-C:\Users\lmasenya\Documents\ficdata\FICData.CIPC\obj\Debug\CIPC.FICData.pdb
